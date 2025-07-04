@@ -1,0 +1,227 @@
+/* -------------------------
+   @IMPORTS
+------------------------- */
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap");
+
+/* -------------------------
+   HTML TAGS
+------------------------- */
+html,
+body {
+    background-color: #0c1925;
+    font-family: "Source Code Pro", monospace; /* takes precedence */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+}
+
+h1 {
+    color: #e6e6e6;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+h2 {
+    color: #c0c0c0;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.15rem;
+}
+
+input:focus {
+    outline: none;
+    border: 0.15rem #e6e6e6 solid;
+}
+
+label {
+    color: #c0c0c0;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.15rem;
+    display: block; /* ensures spacing/layout stays clean */
+}
+
+/* -------------------------
+   CLASSES — A-Z ORDER
+------------------------- */
+
+/* Tooltip styling (MUI override) */
+.MuiTooltip-tooltip {
+    font-size: 0.9rem !important;
+    font-weight: 700 !important;
+    padding: 0.5rem !important;
+    border-radius: 1.25rem 1rem !important;
+}
+
+/* Acceleration control container */
+.acceleration {
+    color: #c0c0c0;
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.75rem;
+}
+
+/* Styled numeric input */
+.amount-input {
+    background-color: #0c1925;
+    border: 0.15rem #b0b0b0 solid;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    color: #e6e6e6;
+    display: block;
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0 auto 1rem;
+    padding: 0.5rem 1rem;
+    position: relative;
+    text-align: center;
+    transition: all 0.2s;
+    width: 100%;
+}
+
+/* Layout for balance + slider row */
+.balance-container {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 95%;
+}
+
+/* Label + tooltip container */
+.balance-label-flex {
+    align-items: center;
+    display: flex;
+}
+
+/* Main balance value styling */
+.balance-value {
+    color: #e6e6e6;
+    display: block;
+    font-size: 1.65rem;
+    font-weight: 700;
+    width: 100%;
+    word-break: break-word;
+}
+
+/* Layout for form section */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+
+/* Reusable flex label class */
+.flex-label {
+    color: #c0c0c0;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.15rem;
+}
+
+/* Primary wrapper for app content */
+.main-container {
+    background-color: #123;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-top: 2.75rem;
+    padding: 2.5rem;
+    row-gap: 1.5rem;
+    width: 100%;
+    max-width: 320px;
+    box-sizing: border-box;
+}
+
+/* Mono font utility */
+.mono {
+    font-family: "Source Code Pro", monospace;
+}
+
+/* Serif font utility */
+.serif {
+    font-family: "Source Serif 4", serif;
+}
+
+/* Transaction dropdown */
+.transaction-type {
+    background-color: #0c1925;
+    border: 0.15rem #b0b0b0 solid;
+    border-radius: 0.5rem;
+    color: #c0c0c0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+}
+
+/* Submit button — shared base styles */
+.submit-btn {
+    border-radius: 0.5rem;
+    cursor: pointer;
+    display: block;
+    font-size: 1.05rem;
+    padding: 0.65rem;
+    text-decoration: none;
+    transition:
+        background-color 0.2s ease,
+        opacity 0.2s ease;
+}
+
+/* Submit Button — State: Empty Form */
+.submit-btn.empty {
+    background-color: #1b2b3a;
+    border: 0.15rem #b0b0b0 solid;
+    color: #b0b0b0;
+    cursor: not-allowed;
+    font-weight: 400;
+    opacity: 0.65;
+}
+
+/* Submit Button — State: Finalizing */
+.submit-btn.finalizing {
+    background-color: #06111c;
+    border: 0.15rem #eee solid;
+    color: #fff;
+    font-weight: 700;
+    position: relative;
+}
+
+/* Submit Button — State: Ready to Submit */
+.submit-btn.ready {
+    background-color: #123;
+    border: 0.15rem #c0c0c0 solid;
+    color: #c0c0c0;
+    font-weight: 500;
+}
+
+.submit-btn.ready:hover {
+    background-color: #0d1c2b;
+    border: 0.15rem #e6e6e6 solid;
+    color: #e6e6e6;
+    font-weight: 600;
+}
+
+/* Spinner shown during async ops */
+.submit-btn .spinner {
+    animation: spin 0.6s linear infinite;
+    border: 0.15rem solid transparent;
+    border-radius: 50%;
+    border-top-color: #eee;
+    display: inline-block;
+    height: 1rem;
+    margin-right: 8px;
+    vertical-align: text-bottom;
+    width: 1rem;
+}
+
+/* -------------------------
+   @KEYFRAMES
+------------------------- */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

@@ -1,25 +1,35 @@
-# Various IDEs and Editors
+# IDEs and editors
 .vscode/
 .idea/
 **/*~
 
-# Mac OSX temporary files
+# macOS
 .DS_Store
 **/.DS_Store
 
-# dfx temporary files
+# dfx (Dfinity SDK)
 .dfx/
-
-# generated files
 **/declarations/
 
-# rust
+# Rust (used internally by Dfinity)
 target/
 
-# frontend code
+# Node/Frontend builds
 node_modules/
 dist/
 .svelte-kit/
 
-# environment variables
+# Env & secrets
 .env
+
+# Logs & debug
+*.log
+
+# Test coverage (if applicable)
+coverage/
+
+# Yarn lock file (if you're not using Yarn)
+yarn.lock
+
+# Custom
+.projectReference

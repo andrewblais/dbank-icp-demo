@@ -1,0 +1,10 @@
+{
+    "plugins": ["prettier-plugin-motoko"],
+    "bracketSpacing": true,
+    "printWidth": 80,
+    "semi": true,
+    "tabWidth": 4,
+    "tabSize": 4,
+    "trailingComma": "es5",
+    "useTabs": false
+}

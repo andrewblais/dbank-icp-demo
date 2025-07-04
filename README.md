@@ -1,59 +1,153 @@
-# `dbank-icp-demo`
+# **dbank-icp-demo**
 
-Welcome to your new `dbank-icp-demo` project and to the Internet Computer development community. By default, creating a new project adds this README and some template files to your project directory. You can edit these template files to customize your project and to include your own code to speed up the development cycle.
+![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![License](https://img.shields.io/github/license/andrewblais/dbank-icp-demo)
+![Built with](https://img.shields.io/badge/Built%20With-Motoko%20%7C%20React%20%7C%20Internet%20Computer-green)
+![Status](https://img.shields.io/badge/status-learning--project-lightgrey)
 
-To get started, you might want to explore the project directory structure and the default configuration file. Working with this project in your development environment will not affect any production deployment or identity tokens.
+**dbank-icp-demo** is a decentralized bank simulation built on the Internet Computer using Motoko for the backend and React (Vite) for the frontend. The app tracks a user balance and applies continuous compound interest at a real-world annual rate of 5% APR. Users can deposit or withdraw funds, and watch their balance grow automatically every 60 seconds (adjustable for demo/testing).
 
-To learn more before you start working with `dbank-icp-demo`, see the following documentation available online:
+This project began as a Motoko + JavaScript module in Angela Yu's [Complete Full-Stack Web Development Bootcamp](https://www.udemy.com/course/the-complete-web-development-bootcamp/). I customized the style, features and functionality, and updated it to modern syntax and tooling using React, modules, docstrings, Prettier, and Material UI.
 
-- [Quick Start](https://internetcomputer.org/docs/current/developer-docs/setup/deploy-locally)
-- [SDK Developer Tools](https://internetcomputer.org/docs/current/developer-docs/setup/install)
-- [Motoko Programming Language Guide](https://internetcomputer.org/docs/current/motoko/main/motoko)
-- [Motoko Language Quick Reference](https://internetcomputer.org/docs/current/motoko/main/language-manual)
+Hats off to GitHub user [**ZacIsrael**](https://github.com/ZacIsrael), whose comments in the Udemy course's Q\&A helped with the React transition. His repo is here: [**dbank-defi-app**](https://github.com/ZacIsrael/dbank-defi-app)
 
-If you want to start working on your project right away, you might want to try the following commands:
+## **_Table of Contents:_**
+
+- [Screenshots](#-screenshots)
+- [Installation](#-installationgetting-started)
+- [Motoko Overview](#-motoko-backend-overview)
+- [Project Structure](#-project-structure)
+- [Reflections](#-reflections--lessons)
+- [Resources](#-resources)
+- [Author](#-andrew-blais)
+
+## **_Screenshots:_**
+
+(Coming soon. See `/public/dbank_icp_demo.png` for preview art.)
+
+## **_Installation/Getting Started:_**
+
+### Prerequisites
+
+- [DFX SDK](https://internetcomputer.org/docs/current/developer-docs/setup/install)
+- [Node.js](https://nodejs.org)
+- [React](https://react.dev)
+- [VS Code](https://code.visualstudio.com)
+- [npm](https://www.npmjs.com/)
+
+### WSL Setup Notes (for Windows Users)
+
+Get Ubuntu/WSL working and install:
+
+- Node (via `brew` or nvm)
+- DFX SDK
+- VS Code WSL extension + Motoko plugin
+
+> WSL setup was non-trivial and required repairing Windows internals and manual linking for Node. Notes are in the full version of this README.
+
+### Project Setup
 
 ```bash
-cd dbank-icp-demo/
-dfx help
-dfx canister --help
+git clone https://github.com/andrewblais/dbank-icp-demo.git
+cd dbank-icp-demo
+npm install
 ```
 
-## Running the project locally
-
-If you want to test your project locally, you can use the following commands:
+Start DFINITY and Vite servers:
 
 ```bash
-# Starts the replica, running in the background
-dfx start --background
-
-# Deploys your canisters to the replica and generates your candid interface
+dfx stop
+dfx start --clean --background
 dfx deploy
-```
-
-Once the job completes, your application will be available at `http://localhost:4943?canisterId={asset_canister_id}`.
-
-If you have made changes to your backend canister, you can generate a new candid interface with
-
-```bash
-npm run generate
-```
-
-at any time. This is recommended before starting the frontend development server, and will be run automatically any time you run `dfx deploy`.
-
-If you are making frontend changes, you can start a development server with
-
-```bash
 npm start
 ```
 
-Which will start a server at `http://localhost:8080`, proxying API requests to the replica at port 4943.
+Local site runs at: `http://localhost:3000`
 
-### Note on frontend environment variables
+## **_Motoko Backend Overview:_**
 
-If you are hosting frontend code somewhere without using DFX, you may need to make one of the following adjustments to ensure your project does not fetch the root key in production:
+The Motoko actor `DBank` tracks `currentValue : Float` and `currentStartTime : Int`. Compound interest is calculated using:
 
-- set`DFX_NETWORK` to `ic` if you are using Webpack
-- use your own preferred method to replace `process.env.DFX_NETWORK` in the autogenerated declarations
-  - Setting `canisters -> {asset_canister_id} -> declarations -> env_override to a string` in `dfx.json` will replace `process.env.DFX_NETWORK` with the string in the autogenerated declarations
-- Write your own `createActor` constructor
+```
+A = P * (1 + r)^t
+```
+
+- `P` = principal
+- `r` = per-second interest (5% APR)
+- `t` = seconds elapsed
+
+Public interface:
+
+- `addValue(amount : Float)`
+- `removeValue(amount : Float)`
+- `checkBalance() : async Float`
+
+Interest is applied lazily upon checking balance. All state is stable.
+
+## **_Project Structure:_**
+
+```
+dbank-icp-demo
+├── .dfx/                  # Auto-generated (not committed)
+├── src/
+│   ├── dbank-icp-demo-frontend/
+│   │   ├── index.html
+│   │   ├── public/
+│   │   │   └── dbank_icp_demo.ico
+│   │   ├── src/
+│   │   │   ├── App.jsx
+│   │   │   ├── main.jsx
+│   │   │   ├── index.css
+│   │   │   ├── components/
+│   │   │   │   ├── AlertBox.jsx
+│   │   │   │   ├── Balance.jsx
+│   │   │   │   ├── HelpTooltipButton.jsx
+│   │   │   │   ├── PopoverButton.jsx
+│   │   │   │   └── TransactionForm.jsx
+│   │   │   ├── utils/
+│   │   │   │   └── formatWithCommas.js
+│   │   │   └── assets/
+│   │   │       └── dbank_icp_demo.svg
+│   │   └── vite.config.js
+│   ├── dbank-icp-demo-backend/
+│   │   └── main.mo
+│   └── declarations/     # Auto-generated
+├── dfx.json
+├── package.json
+├── tsconfig.json
+├── .gitignore
+├── .prettierrc
+├── .env
+└── README.md
+```
+
+> Note: `.dfx/` and `declarations/` are excluded from Git.
+
+## **_Reflections & Lessons:_**
+
+- Translating backend logic into compound interest was rewarding and deepened my Motoko understanding.
+- Modular React components (`Balance`, `TransactionForm`, `AlertBox`, `HelpTooltipButton`, `PopoverButton`) keep logic focused and composable.
+- `formatWithCommas.js` helps enforce numeric clarity and reduces bugs in input handling.
+- Real-time balance sync is adjustable using sliders for refresh interval and acceleration.
+- Using docstrings, clear props, and consistent CSS helps make this app legible to future devs.
+
+## **_Resources:_**
+
+- [DFINITY Developer Docs](https://internetcomputer.org/docs/current)
+- [Motoko Language Guide](https://internetcomputer.org/docs/current/motoko/main/motoko)
+- [React](https://react.dev)
+- [Material UI](https://mui.com)
+- [Angela Yu’s Web Dev Bootcamp](https://www.udemy.com/course/the-complete-web-development-bootcamp/)
+- [ZacIsrael’s dbank-defi-app](https://github.com/ZacIsrael/dbank-defi-app)
+- [Vite](https://vitejs.dev)
+- [Vitest](https://vitest.dev)
+- [ChatGPT](https://chat.openai.com)
+
+---
+
+### _Andrew Blais — Boston, MA_
+
+_Studying full-stack software development, AI alignment, and applied math._
+
+- [Portfolio/Website](https://www.andrewblais.dev)
+- [GitHub](https://github.com/andrewblais)
