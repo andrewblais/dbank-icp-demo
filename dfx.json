@@ -1,0 +1,44 @@
+{
+  "canisters": {
+    "dbank-icp-demo-backend": {
+      "main": "src/dbank-icp-demo-backend/main.mo",
+      "type": "motoko"
+    },
+    "dbank-icp-demo-frontend": {
+      "dependencies": [
+        "dbank-icp-demo-backend"
+      ],
+      "source": [
+        "src/dbank-icp-demo-frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "dbank-icp-demo-frontend"
+    },
+    "internet_identity": {
+      "candid": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity.did",
+      "frontend": {},
+      "remote": {
+        "id": {
+          "ic": "rdmx6-jaaaa-aaaaa-aaadq-cai"
+        }
+      },
+      "type": "custom",
+      "wasm": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity_dev.wasm.gz"
+    }
+  },
+  "defaults": {
+    "bitcoin": {
+      "enabled": true,
+      "log_level": "info",
+      "nodes": [
+        "127.0.0.1:18444"
+      ]
+    },
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
