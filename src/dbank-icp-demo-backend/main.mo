@@ -10,7 +10,7 @@ import Time "mo:base/Time";
 actor DBank {
 
     /// Account balance (in virtual USD for display).
-    stable var currentValue : Float = 300;
+    stable var currentValue : Float = 0;
 
     /// Last timestamp (in nanoseconds) when interest was applied.
     stable var prevStartTime : Int = Time.now();

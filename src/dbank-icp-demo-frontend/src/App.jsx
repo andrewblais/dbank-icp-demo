@@ -21,7 +21,8 @@ function App() {
     const [transactionType, setTransactionType] = useState("deposit");
     const [amount, setAmount] = useState("");
     const [buttonIsDisabled, setButtonIsDisabled] = useState(false);
-    const [showAlert, setShowAlert] = useState(false);
+    const [showAlertWarning, setShowAlertWarning] = useState(false);
+    const [showAlertSuccess, setShowAlertSuccess] = useState(false);
     const [acceleration, setAcceleration] = useState(1);
     const [refreshRateMs, setRefreshRateMs] = useState(60000); // Default: 60 seconds
 
@@ -37,11 +38,19 @@ function App() {
 
     /// Auto-hides the overdraft alert after 5 seconds.
     useEffect(() => {
-        if (showAlert) {
-            const timer = setTimeout(() => setShowAlert(false), 5000);
+        if (showAlertWarning) {
+            const timer = setTimeout(() => setShowAlertWarning(false), 5000);
             return () => clearTimeout(timer);
         }
-    }, [showAlert]);
+    }, [showAlertWarning]);
+
+    /// Auto-hides the success alert after 5 seconds.
+    useEffect(() => {
+        if (showAlertSuccess) {
+            const timer = setTimeout(() => setShowAlertSuccess(false), 5000);
+            return () => clearTimeout(timer);
+        }
+    }, [showAlertSuccess]);
 
     /// Periodically updates balance based on selected refresh interval.
     useEffect(() => {
@@ -60,7 +69,7 @@ function App() {
                 transactionType === "withdraw" &&
                 numericAmount > currentBalance
             ) {
-                setShowAlert(true);
+                setShowAlertWarning(true);
                 return;
             }
 
@@ -72,6 +81,7 @@ function App() {
                 }
                 setAmount("");
                 await updateBalance();
+                setShowAlertSuccess(true);
             }
         } finally {
             setButtonIsDisabled(false);
@@ -81,7 +91,7 @@ function App() {
     return (
         <main className="main-container">
             <div>
-                <img src={logo} alt="DBank ICP demo logo" width="92.5%" />
+                <img src={logo} alt="DBank ICP demo logo" width="225px" />
             </div>
 
             <PopoverButton
@@ -89,13 +99,13 @@ function App() {
                 popupText="Simulate compound interest on your ICP balance. Deposit, withdraw, and adjust settings to explore real-world growth over time."
             />
 
-            <div>
+            <div className="specs-container-parent">
                 <Balance currentBalance={currentBalance} />
 
                 {/* Slider: Interest Acceleration */}
                 <div className="acceleration">
-                    <div className="balance-container">
-                        <div className="balance-label-flex">
+                    <div className="specs-container-child">
+                        <div className="specs-label-flex">
                             <label htmlFor="speed" className="flex-label">
                                 accelerate interest
                             </label>
@@ -121,8 +131,8 @@ function App() {
 
                 {/* Slider: Refresh Rate */}
                 <div className="acceleration">
-                    <div className="balance-container">
-                        <div className="balance-label-flex">
+                    <div className="specs-container-child">
+                        <div className="specs-label-flex">
                             <label htmlFor="refresh" className="flex-label">
                                 refresh rate
                             </label>
@@ -148,8 +158,17 @@ function App() {
             </div>
 
             <AlertBox
-                showAlert={showAlert}
-                onClose={() => setShowAlert(false)}
+                severity="warning"
+                showAlert={showAlertWarning}
+                onClose={() => setShowAlertWarning(false)}
+                displayText="Lower withdrawal amount."
+            />
+
+            <AlertBox
+                severity="success"
+                showAlert={showAlertSuccess}
+                onClose={() => setShowAlertSuccess(false)}
+                displayText="Transaction successful."
             />
 
             <TransactionForm

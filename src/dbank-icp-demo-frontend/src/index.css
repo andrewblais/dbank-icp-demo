@@ -57,9 +57,6 @@ label {
 /* Acceleration control container */
 .acceleration {
     color: #c0c0c0;
-    display: flex;
-    flex-direction: column;
-    margin-top: 0.75rem;
 }
 
 /* Styled numeric input */
@@ -80,30 +77,12 @@ label {
     width: 100%;
 }
 
-/* Layout for balance + slider row */
-.balance-container {
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 0 auto;
-    max-width: 95%;
-}
-
-/* Label + tooltip container */
-.balance-label-flex {
-    align-items: center;
-    display: flex;
-}
-
-/* Main balance value styling */
-.balance-value {
-    color: #e6e6e6;
-    display: block;
-    font-size: 1.65rem;
-    font-weight: 700;
-    width: 100%;
-    word-break: break-word;
+/* Reusable flex label class */
+.flex-label {
+    color: #c0c0c0;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.15rem;
 }
 
 /* Layout for form section */
@@ -111,14 +90,7 @@ label {
     display: flex;
     flex-direction: column;
     row-gap: 1rem;
-}
-
-/* Reusable flex label class */
-.flex-label {
-    color: #c0c0c0;
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 0.15rem;
+    margin: 1rem auto 0;
 }
 
 /* Primary wrapper for app content */
@@ -128,11 +100,10 @@ label {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-    margin-top: 2.75rem;
-    padding: 2.5rem;
-    row-gap: 1.5rem;
-    width: 100%;
-    max-width: 320px;
+    margin-top: 1.5rem;
+    padding: 2rem 2.5rem;
+    row-gap: 0.65rem;
+    width: 400px;
     box-sizing: border-box;
 }
 
@@ -146,24 +117,47 @@ label {
     font-family: "Source Serif 4", serif;
 }
 
-/* Transaction dropdown */
-.transaction-type {
-    background-color: #0c1925;
-    border: 0.15rem #b0b0b0 solid;
-    border-radius: 0.5rem;
-    color: #c0c0c0;
-    font-size: 0.9rem;
-    font-weight: 600;
-    padding: 0.25rem 0.75rem;
+/* Layout for specs + slider row */
+.specs-container-child {
+    display: grid;
+    grid-template-rows: 2rem 1rem 2rem;
+    justify-items: center;
+}
+
+/* Label + tooltip container */
+.specs-label-flex {
+    align-items: center;
+    display: flex;
+}
+
+.specs-container-parent {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+    margin: 1rem auto 0;
+}
+
+/* Main specs value styling */
+.specs-value {
+    color: #e6e6e6;
+    display: block;
+    font-size: 1.65rem;
+    font-weight: 700;
+    width: 100%;
+    word-break: break-word;
 }
 
 /* Submit button — shared base styles */
 .submit-btn {
     border-radius: 0.5rem;
     cursor: pointer;
-    display: block;
-    font-size: 1.05rem;
-    padding: 0.65rem;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    font-size: 1.1rem;
+    padding: 0.35rem;
+    width: 60%;
+    height: 4rem;
+    margin: 0 auto;
     text-decoration: none;
     transition:
         background-color 0.2s ease,
@@ -212,10 +206,26 @@ label {
     border-top-color: #eee;
     display: inline-block;
     height: 1rem;
-    margin-right: 8px;
+    margin: 0 auto;
     vertical-align: text-bottom;
+    text-align: center;
     width: 1rem;
 }
+
+/* Transaction dropdown */
+.transaction-type {
+    background-color: #0c1925;
+    border: 0.15rem #b0b0b0 solid;
+    border-radius: 0.5rem;
+    color: #c0c0c0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+}
+
+/* -------------------------
+   ID'S — A-Z ORDER
+------------------------- */
 
 /* -------------------------
    @KEYFRAMES

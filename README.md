@@ -1,9 +1,8 @@
 # **dbank-icp-demo**
 
-![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![Version](https://img.shields.io/badge/version-1.0.0-firebrick)
 ![License](https://img.shields.io/github/license/andrewblais/dbank-icp-demo)
-![Built with](https://img.shields.io/badge/Built%20With-Motoko%20%7C%20React%20%7C%20Internet%20Computer-green)
-![Status](https://img.shields.io/badge/status-learning--project-lightgrey)
+![Built with](https://img.shields.io/badge/Built%20With-Motoko%20%7C%20React%20%7C%20Internet%20Computer-29aae1)
 
 **dbank-icp-demo** is a decentralized bank simulation built on the Internet Computer using Motoko for the backend and React (Vite) for the frontend. The app tracks a user balance and applies continuous compound interest at a real-world annual rate of 5% APR. Users can deposit or withdraw funds, and watch their balance grow automatically every 60 seconds (adjustable for demo/testing).
 

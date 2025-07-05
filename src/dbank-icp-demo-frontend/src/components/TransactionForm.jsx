@@ -30,25 +30,28 @@ function TransactionForm({
 
     return (
         <form className="form-container" onSubmit={handleFormSubmit}>
-            <label htmlFor="transaction-select">TRANSACTION TYPE</label>
-            <select
-                id="transaction-select"
-                className="transaction-type"
-                value={transactionType}
-                onChange={(e) => setTransactionType(e.target.value)}
-            >
-                <option value="deposit">deposit</option>
-                <option value="withdraw">withdraw</option>
-            </select>
-
-            <label htmlFor="amount-input">AMOUNT</label>
-            <input
-                id="amount-input"
-                type="text"
-                value={amount}
-                onChange={handleAmountChange}
-                className="mono amount-input"
-            />
+            <div>
+                <label htmlFor="transaction-select">TRANSACTION TYPE</label>
+                <select
+                    id="transaction-select"
+                    className="transaction-type"
+                    value={transactionType}
+                    onChange={(e) => setTransactionType(e.target.value)}
+                >
+                    <option value="deposit">deposit</option>
+                    <option value="withdraw">withdraw</option>
+                </select>
+            </div>
+            <div>
+                <label htmlFor="amount-input">AMOUNT</label>
+                <input
+                    id="amount-input"
+                    type="text"
+                    value={amount}
+                    onChange={handleAmountChange}
+                    className="mono amount-input"
+                />
+            </div>
 
             <button
                 type="submit"
@@ -63,14 +66,20 @@ function TransactionForm({
                 aria-live="polite"
             >
                 {isFormEmpty ? (
-                    "waiting for amount"
+                    <>
+                        <div>enter</div>
+                        <div>amount</div>
+                    </>
                 ) : buttonIsDisabled ? (
                     <>
                         <span className="spinner" aria-hidden="true" />
-                        finalizing transaction
+                        <div> finalizing </div>
                     </>
                 ) : (
-                    "finalize transaction"
+                    <>
+                        <div>finalize</div>
+                        <div> transaction </div>
+                    </>
                 )}
             </button>
         </form>
