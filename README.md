@@ -22,7 +22,13 @@ Hats off to GitHub user [**ZacIsrael**](https://github.com/ZacIsrael), whose com
 
 ## **_Screenshots:_**
 
-(Coming soon. See `/public/dbank_icp_demo.png` for preview art.)
+#### **_App at Start:_**
+
+<img src=./assets/dbank_icp_demo_screenshot.jpg width=360>
+
+#### **_Popover Instructions:_**
+
+<img src=./assets/dbank_icp_demo_popover.jpg width=320>
 
 ## **_Installation/Getting Started:_**
 
