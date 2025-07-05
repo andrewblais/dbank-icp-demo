@@ -6,9 +6,9 @@
 
 **dbank-icp-demo** is a decentralized bank simulation built on the Internet Computer using Motoko for the backend and React (Vite) for the frontend. The app tracks a user balance and applies continuous compound interest at a real-world annual rate of 5% APR. Users can deposit or withdraw funds, and watch their balance grow automatically every 60 seconds (adjustable for demo/testing).
 
-This project began as a Motoko + JavaScript module in Angela Yu's [Complete Full-Stack Web Development Bootcamp](https://www.udemy.com/course/the-complete-web-development-bootcamp/). I customized the style, features and functionality, and updated it to modern syntax and tooling using React, modules, docstrings, Prettier, and Material UI.
+This project began as a Motoko + JavaScript module in Angela Yu's <a href="https://www.udemy.com/course/the-complete-web-development-bootcamp/" target="_blank" rel="noopener noreferrer">Complete Full-Stack Web Development Bootcamp</a>. I customized the style, features and functionality, and updated it to modern syntax and tooling using React, modules, docstrings, Prettier, and Material UI.
 
-Hats off to GitHub user [**ZacIsrael**](https://github.com/ZacIsrael), whose comments in the Udemy course's Q\&A helped with the React transition. His repo is here: [**dbank-defi-app**](https://github.com/ZacIsrael/dbank-defi-app)
+Hats off to GitHub user <a href="https://github.com/ZacIsrael" target="_blank" rel="noopener noreferrer"><strong>ZacIsrael</strong></a>, whose comments in the Udemy course's Q&amp;A helped with the React transition. His repo is here: <a href="https://github.com/ZacIsrael/dbank-defi-app" target="_blank" rel="noopener noreferrer"><strong>dbank-defi-app</strong></a>
 
 ## **_Table of Contents:_**
 
@@ -34,11 +34,11 @@ Hats off to GitHub user [**ZacIsrael**](https://github.com/ZacIsrael), whose com
 
 ### Prerequisites
 
-- [DFX SDK](https://internetcomputer.org/docs/current/developer-docs/setup/install)
-- [Node.js](https://nodejs.org)
-- [React](https://react.dev)
-- [VS Code](https://code.visualstudio.com)
-- [npm](https://www.npmjs.com/)
+- <a href="https://internetcomputer.org/docs/current/developer-docs/setup/install" target="_blank" rel="noopener noreferrer">DFX SDK</a>
+- <a href="https://nodejs.org" target="_blank" rel="noopener noreferrer">Node.js</a>
+- <a href="https://react.dev" target="_blank" rel="noopener noreferrer">React</a>
+- <a href="https://code.visualstudio.com" target="_blank" rel="noopener noreferrer">VS Code</a>
+- <a href="https://www.npmjs.com/" target="_blank" rel="noopener noreferrer">npm</a>
 
 ### WSL Setup Notes (for Windows Users)
 
@@ -138,15 +138,15 @@ dbank-icp-demo
 
 ## **_Resources:_**
 
-- [DFINITY Developer Docs](https://internetcomputer.org/docs/current)
-- [Motoko Language Guide](https://internetcomputer.org/docs/current/motoko/main/motoko)
-- [React](https://react.dev)
-- [Material UI](https://mui.com)
-- [Angela Yu’s Web Dev Bootcamp](https://www.udemy.com/course/the-complete-web-development-bootcamp/)
-- [ZacIsrael’s dbank-defi-app](https://github.com/ZacIsrael/dbank-defi-app)
-- [Vite](https://vitejs.dev)
-- [Vitest](https://vitest.dev)
-- [ChatGPT](https://chat.openai.com)
+- <a href="https://internetcomputer.org/docs/current" target="_blank" rel="noopener noreferrer">DFINITY Developer Docs</a>
+- <a href="https://internetcomputer.org/docs/current/motoko/main/motoko" target="_blank" rel="noopener noreferrer">Motoko Language Guide</a>
+- <a href="https://react.dev" target="_blank" rel="noopener noreferrer">React</a>
+- <a href="https://mui.com" target="_blank" rel="noopener noreferrer">Material UI</a>
+- <a href="https://www.udemy.com/course/the-complete-web-development-bootcamp/" target="_blank" rel="noopener noreferrer">Angela Yu’s Web Dev Bootcamp</a>
+- <a href="https://github.com/ZacIsrael/dbank-defi-app" target="_blank" rel="noopener noreferrer">ZacIsrael’s dbank-defi-app</a>
+- <a href="https://vitejs.dev" target="_blank" rel="noopener noreferrer">Vite</a>
+- <a href="https://vitest.dev" target="_blank" rel="noopener noreferrer">Vitest</a>
+- <a href="https://chat.openai.com" target="_blank" rel="noopener noreferrer">ChatGPT</a>
 
 ---
 
@@ -154,5 +154,5 @@ dbank-icp-demo
 
 _Studying full-stack software development, AI alignment, and applied math._
 
-- [Portfolio/Website](https://www.andrewblais.dev)
-- [GitHub](https://github.com/andrewblais)
+- <a href="https://www.andrewblais.dev" target="_blank" rel="noopener noreferrer">Portfolio/Website</a>
+- <a href="https://github.com/andrewblais" target="_blank" rel="noopener noreferrer">GitHub</a>
