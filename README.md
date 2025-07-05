@@ -145,7 +145,6 @@ dbank-icp-demo
 - [Angela Yu’s Web Dev Bootcamp](https://www.udemy.com/course/the-complete-web-development-bootcamp/)
 - [ZacIsrael’s dbank-defi-app](https://github.com/ZacIsrael/dbank-defi-app)
 - [Vite](https://vitejs.dev)
-- [Vitest](https://vitest.dev)
 - [ChatGPT](https://chat.openai.com)
 
 ---
