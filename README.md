@@ -1,3 +1,7 @@
+> ⚠️ **Archived portfolio project**  
+> Dependencies were current as of **July 2025**.  
+> This repository is maintained for reference and demonstration purposes.
+
 # **dbank-icp-demo**
 
 ![Version](https://img.shields.io/badge/version-1.0.0-firebrick)
